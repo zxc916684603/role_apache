@@ -1,11 +1,18 @@
-- name: install the IUS rpm from a remote repo
-  yum:
-    name: https://rhel7.iuscommunity.org/ius-release.rpm
-    state: present
+- block:
+  - name: install the IUS rpm from a remote repo
+    yum:
+      name: https://rhel7.iuscommunity.org/ius-release.rpm
+      state: present
+
+  - name: Install Apache
+    yum:
+      name: [httpd24u,httpd24u-mod_ssl]
+  when: ansible_distribution_major_version == 7
 
 - name: Install Apache
   yum:
-    name: [httpd24u,httpd24u-mod_ssl]
+    name: [httpd,mod_ssl]
+    when: ansible_distribution_major_version == 8
 
 - name: Install Certbot
   yum:
