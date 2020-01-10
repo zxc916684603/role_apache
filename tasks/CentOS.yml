@@ -7,12 +7,12 @@
   - name: Install Apache
     yum:
       name: [httpd24u,httpd24u-mod_ssl]
-  when: ansible_distribution_major_version == 7
+  when: ansible_distribution_major_version == '7'
 
 - name: Install Apache
   yum:
     name: [httpd,mod_ssl]
-    when: ansible_distribution_major_version == 8
+    when: ansible_distribution_major_version == '8'
 
 - name: Install Certbot
   yum:
