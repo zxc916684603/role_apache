@@ -62,6 +62,12 @@
     - wwwroot
     - cert 
 
+- name: Link Apache service
+  file:
+    src: /usr/lib/systemd/system/httd.service
+    dest: /usr/lib/systemd/system/apache.service
+    state: link
+
 
 - name: Start Apache
   service:
