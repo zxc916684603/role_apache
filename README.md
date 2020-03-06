@@ -1,4 +1,4 @@
-Ansible Role: phpmyadmin
+Ansible Role: Apache
 =========
 
 本 Role 用于在PHP运行环境下安装 [Apache](https://www.apache.org/)。
