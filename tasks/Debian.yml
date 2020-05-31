@@ -48,6 +48,4 @@
     enabled: yes
 
 - name: Check Apache Version
-  shell: apache2 -v
-  register: ubuntu_apache_ver
-  notify: Apache-ubuntu Version
+  shell: sudo sh -c 'echo "httpd  $(apache2 -v | sed -n 1p)" 1>> /data/logs/install_version.txt'
