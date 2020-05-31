@@ -64,6 +64,4 @@
 
 
 - name: Check Apache Version
-  shell: httpd -v
-  register: centos_apache_ver
-  notify: Apache-centos Version
+  shell: sudo sh -c 'echo "httpd  $( httpd -v | sed -n 1p)" 1>> /data/logs/install_version.txt'
