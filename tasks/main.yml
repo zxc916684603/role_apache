@@ -3,3 +3,9 @@
 
 - import_tasks: Debian.yml
   when: ansible_os_family == 'Debian'
+  
+# check service state
+- name: Check Apache Service
+  shell: systemctl status apache | grep Active*
+  register: check_apache_service
+  notify: check_apache_service
