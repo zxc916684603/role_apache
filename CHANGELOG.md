@@ -3,7 +3,7 @@
 
 ## To do
 
-1. 
+1. Enable authority for Apache vhost, refer to: https://github.com/rethinkdb/rethinkdb/issues/1163
 
 ## Logs
 
