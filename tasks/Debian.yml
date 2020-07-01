@@ -26,7 +26,7 @@
     dest: '{{item.dest}}'
     state: link
   with_items:
-    - {src: /var/log/apache2,dest: /data/logs/apache2}
+    - {src: /var/log/apache2,dest: /data/logs/apache}
     - {src: /var/log/apache2,dest: /etc/apache2/logs}
     - {src: /etc/apache2/sites-enabled,dest: /data/config/apache/sites-enabled}
     - {src: /etc/apache2/mods-enabled,dest: /data/config/apache/mods-enabled}
