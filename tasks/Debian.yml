@@ -14,6 +14,7 @@
   shell: |
     a2enmod rewrite
     a2enmod ssl
+    unlink /etc/apache2/sites-enabled/000-default.conf
 
 - name: Create default Directory
   file:
@@ -26,6 +27,9 @@
     dest: '{{item.dest}}'
     state: link
   with_items:
+    - {src: /etc/apache2,dest: /etc/httpd}
+    - {src: /etc/apache2/sites-enabled,dest: /etc/httpd/conf.d}
+    - {src: /etc/apache2/sites-available/000-default.conf,dest: /etc/apache2/sites-available/vhost.conf}
     - {src: /var/log/apache2,dest: /data/logs/apache}
     - {src: /var/log/apache2,dest: /etc/apache2/logs}
     - {src: /etc/apache2/sites-enabled,dest: /data/config/apache/sites-enabled}
