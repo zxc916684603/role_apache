@@ -9,6 +9,11 @@
 - name: Install Certbot
   apt: 
     name: [certbot,python-certbot-apache]
+    
+- name: Enable Apache modules
+  shell: |
+    a2enmod rewrite
+    a2enmod ssl
 
 - name: Create default Directory
   file:
