@@ -1,6 +1,6 @@
-- name: Install apache2
+- name: Install Apache and 3th modules
   apt:
-    name: [apache2]
+    name: [apache2,libapache2-mod-xsendfile]
 
 - name: Import Certbot PPA
   apt_repository:
@@ -31,7 +31,7 @@
     - {src: /etc/apache2/sites-enabled,dest: /etc/httpd/conf.d}
     - {src: /etc/apache2,dest: /etc/httpd/conf}
     - {src: /etc/apache2/apache2.conf,dest: /etc/httpd/conf/httpd.conf}
-    - {src: /etc/apache2/sites-available/000-default.conf,dest: /etc/apache2/sites-available/vhost.conf}
+    - {src: /etc/apache2/sites-available/000-default.conf,dest: /etc/apache2/sites-enabled/vhost.conf}
     - {src: /var/log/apache2,dest: /var/log/httpd}
     - {src: /var/log/apache2,dest: /data/logs/apache}
     - {src: /var/log/apache2,dest: /etc/apache2/logs}
