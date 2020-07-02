@@ -28,6 +28,8 @@
     state: link
   with_items:
     - {src: /etc/apache2,dest: /etc/httpd}
+    - {src: /usr/sbin/apache2,dest: /usr/sbin/apache}
+    - {src: /usr/sbin/apache2,dest: /usr/sbin/httpd}
     - {src: /etc/apache2/sites-enabled,dest: /etc/httpd/conf.d}
     - {src: /etc/apache2,dest: /etc/httpd/conf}
     - {src: /etc/apache2/apache2.conf,dest: /etc/httpd/conf/httpd.conf}
