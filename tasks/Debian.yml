@@ -67,3 +67,9 @@
 
 - name: Check Apache Version
   shell: sudo sh -c 'echo "httpd  $(apache2 -v | sed -n 1p)" 1>> /data/logs/install_version.txt'
+  
+- block:
+  name: Install certbot
+  shell: |
+    yum install -y certbot python2-certbot-apache
+    echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew -q" | sudo tee -a /etc/crontab > /dev/null
