@@ -7,7 +7,6 @@
   shell: |
     a2enmod rewrite
     a2enmod ssl
-    unlink /etc/apache2/sites-enabled/000-default.conf
 
 - name: Create default Directory
   file:
