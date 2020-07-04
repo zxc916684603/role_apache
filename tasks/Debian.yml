@@ -73,10 +73,10 @@
 - name: Install certbot
   shell: |
     apt-get update
-    apt-get install software-properties-common
+    apt-get install -y software-properties-common
     add-apt-repository universe
     add-apt-repository ppa:certbot/certbot
     apt-get update
-    apt-get install certbot python3-certbot-nginx
+    apt-get install -y certbot python3-certbot-nginx
     certbot renew --dry-run
   when: apache_certbot
