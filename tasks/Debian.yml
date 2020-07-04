@@ -2,14 +2,6 @@
 - name: Install Apache and 3th modules
   apt:
     name: [apache2,libapache2-mod-xsendfile]
-
-- name: Import Certbot PPA
-  apt_repository:
-    repo: ppa:certbot/certbot
-
-- name: Install Certbot
-  apt: 
-    name: [certbot,python-certbot-apache]
     
 - name: Enable Apache modules
   shell: |
