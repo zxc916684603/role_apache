@@ -68,6 +68,6 @@
     add-apt-repository universe
     echo "" | add-apt-repository ppa:certbot/certbot 
     apt-get update
-    apt-get install -y certbot python3-certbot-nginx
+    apt-get install -y certbot python3-certbot-apache
     certbot renew --dry-run
   when: apache_certbot
