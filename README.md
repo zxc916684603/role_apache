@@ -1,7 +1,7 @@
 Ansible Role: Apache
 =========
 
-本 Role 用于在PHP运行环境下安装 [Apache](https://www.apache.org/)。
+本 Role 用于在PHP运行环境下安装 [Apache](https://www.apache.org/)，以及一些紧耦合的应用，包括：certbot等。
 
 ## Requirements
 
