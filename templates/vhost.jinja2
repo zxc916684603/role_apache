@@ -1,3 +1,4 @@
+{% if apache_vhost_mode == 'www' %}
 # Apache VirtualHost Configuration
 
 <VirtualHost *:80>
@@ -16,6 +17,7 @@
 #----- HTTPS  start ------------
 
 #----- HTTPS  end --------------
+{% endif %}
 
 {% if apache_vhost_mode == 'alias' %}
 {% if apache_appname == 'example' %}
