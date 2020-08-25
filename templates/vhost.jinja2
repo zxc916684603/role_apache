@@ -16,3 +16,18 @@
 #----- HTTPS  start ------------
 
 #----- HTTPS  end --------------
+
+{% if apache_vhost_mode == 'alias' %}
+{% if apache_appname == 'example' %}
+Alias /app1 "/data/wwwroot/www.example.com"
+<Directory "/data/wwwroot/www.example.com">
+{% endif %}
+{% if apache_appname != 'example' %}
+Alias /app1 "/data/wwwroot/{{apache_appname}}.yourdomain.com"
+<Directory "/data/wwwroot/{{apache_appname}}.yourdomain.com">
+{% endif %}   
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride all
+    Require all granted
+</Directory>
+{% endif %}
