@@ -1,2 +1,8 @@
 apache_ius_url: https://repo.ius.io/ius-release-el7.rpm
 apache_certbot: True
+
+# reverse | alias | www | 
+apache_vhost_mode: "www"
+
+# wordpress | discuz | joomla ,more refer to files/rewrite folder
+apache_appname: "example"
