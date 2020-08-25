@@ -1,17 +1,6 @@
 # install Apache by OS_family
 - name: Install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
-
-- name: Set apache server or apache reverse proxy
-  template:
-    src: default.jinja2
-    dest: /etc/httpd/conf.d/vhost.conf
-    
-- name: Restart Apache
-  service:
-    name: apache
-    state: restarted
-    enabled: yes
   
 # check service state
 - name: Check Apache Service
