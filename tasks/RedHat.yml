@@ -25,6 +25,11 @@
   file:
     path: /etc/httpd/vhost
     state: directory
+  
+- name: Set apache server or apache reverse proxy
+  template:
+    src: default.jinja2
+    dest: /etc/httpd/conf.d/vhost.conf
 
 - name: Create a Apache Log symbolic link
   file:
