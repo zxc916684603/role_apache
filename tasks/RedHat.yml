@@ -40,6 +40,7 @@
     - {src: /var/log/httpd,dest: /data/logs/apache}  # Apache 日志软连接
     - {src: /etc/httpd/vhost,dest: /data/config/apache/vhost} # Apache 虚拟主机配置软连接
     - {src: /etc/httpd/conf.modules.d,dest: /data/config/apache/conf.modules.d} # Apache 模块配置软连接
+    - {src: /etc/httpd/conf.d/vhost.conf,dest: /etc/httpd/vhost/vhost.conf}  # Apache vhost 配置软链接
 
 - name: Change Directory Owner
   file:
