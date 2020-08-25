@@ -16,11 +16,6 @@
     name: [httpd,mod_ssl]
   when: ansible_distribution_major_version == '8'
 
-- name: Configure Apache
-  copy:
-    src: httpd.conf
-    dest: /etc/httpd/conf/
-
 - name: Create default Directory
   file:
     path: /data/config/apache
