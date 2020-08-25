@@ -43,10 +43,10 @@
     - wwwroot
     - cert
 
-- name: Configure Apache
-  copy:
-    src: apache2.conf
-    dest: /etc/apache2/
+- name: Set apache server or apache reverse proxy
+  template:
+    src: default.jinja2
+    dest: /etc/httpd/conf.d/vhost.conf
 
 - name: set soft link apache for apache2
   shell: |
