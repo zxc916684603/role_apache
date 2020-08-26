@@ -58,6 +58,12 @@
     dest: /usr/lib/systemd/system/apache.service
     state: link
 
+- name: set auto access index page
+  lineinfile:
+    dest: /etc/httpd/conf/httpd.conf
+    regexp: "    DirectoryIndex index.html"
+    line: "    DirectoryIndex {{}}"
+      
 - name: Start Apache
   service:
     name: httpd
