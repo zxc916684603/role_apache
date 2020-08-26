@@ -6,3 +6,5 @@ apache_vhost_mode: "www"
 
 # wordpress | discuz | joomla ,more refer to files/rewrite folder
 apache_appname: "example"
+
+apache_default_index: " index.html index.htm index.php index.jsp "
