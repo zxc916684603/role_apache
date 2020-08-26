@@ -62,7 +62,7 @@
   lineinfile:
     dest: /etc/httpd/conf/httpd.conf
     regexp: "    DirectoryIndex index.html"
-    line: "    DirectoryIndex {{}}"
+    line: "    DirectoryIndex {{apache_default_index}}"
       
 - name: Start Apache
   service:
