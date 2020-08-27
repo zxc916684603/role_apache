@@ -1,4 +1,7 @@
 #1 Install and configure Apache
+- name: delete installed apache files
+  shell: rm -rf /etc/apache2
+    
 - name: Install Apache and 3th modules
   apt:
     name: [apache2,libapache2-mod-xsendfile]
