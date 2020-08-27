@@ -63,6 +63,7 @@
     dest: /etc/httpd/conf/httpd.conf
     regexp: "    DirectoryIndex index.html"
     line: "    DirectoryIndex {{apache_default_index}}"
+    backrefs: yes
       
 - name: Start Apache
   service:
