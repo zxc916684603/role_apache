@@ -4,7 +4,6 @@
 <VirtualHost *:80>
 {% if apache_appname == 'example' %}
   ServerName www.example.com
-  ServerAlias example.com
   DocumentRoot "/data/wwwroot/www.example.com"
   ErrorLog "logs/www.example.com-error_log"
   CustomLog "logs/www.example.com-access_log" common
@@ -12,7 +11,6 @@
 {% endif %}
 {% if apache_appname != 'example' %}
   ServerName {{apache_appname}}.yourdomain.com
-  ServerAlias {{apache_appname}}.com
   DocumentRoot "/data/wwwroot/{{apache_appname}}"
   ErrorLog "logs/{{apache_appname}}-error_log"
   CustomLog "logs/{{apache_appname}}-access_log" common
