@@ -16,7 +16,7 @@
   CustomLog "logs/{{apache_appname}}-access_log" common
   <Directory "/data/wwwroot/{{apache_appname}}">
 {% endif %}
-    DirectoryIndex index.html index.htm index.php index.jsp
+    DirectoryIndex {{apache_default_index}}
     Options FollowSymlinks
     AllowOverride All
     Require all granted
