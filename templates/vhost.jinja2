@@ -2,20 +2,12 @@
 # Apache VirtualHost Configuration
 
 <VirtualHost *:80>
-{% if apache_appname == 'example' %}
-  ServerName www.example.com
-  DocumentRoot "/data/wwwroot/www.example.com"
-  ErrorLog "logs/www.example.com-error_log"
-  CustomLog "logs/www.example.com-access_log" common
-  <Directory "/data/wwwroot/www.example.com">
-{% endif %}
-{% if apache_appname != 'example' %}
   ServerName {{apache_appname}}.yourdomain.com
   DocumentRoot "/data/wwwroot/{{apache_appname}}"
   ErrorLog "logs/{{apache_appname}}-error_log"
   CustomLog "logs/{{apache_appname}}-access_log" common
+  
   <Directory "/data/wwwroot/{{apache_appname}}">
-{% endif %}
     DirectoryIndex {{apache_default_index}}
     Options FollowSymlinks
     AllowOverride All
@@ -29,14 +21,8 @@
 {% endif %}
 
 {% if apache_vhost_mode == 'alias' %}
-{% if apache_appname == 'example' %}
-Alias /app1 "/data/wwwroot/www.example.com"
-<Directory "/data/wwwroot/www.example.com">
-{% endif %}
-{% if apache_appname != 'example' %}
 Alias /app1 "/data/wwwroot/{{apache_appname}}"
 <Directory "/data/wwwroot/{{apache_appname}}>
-{% endif %}   
     Options Indexes FollowSymLinks MultiViews
     AllowOverride all
     Require all granted
