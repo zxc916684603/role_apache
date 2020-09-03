@@ -32,7 +32,10 @@ roles:
 
 | **Items**      | **Details** | **Format**  | **是否初始化** |
 | ------------------| ------------------|-----|-----|
-| apache_ius_url | [ https://repo.ius.io/ius-release-el7.rpm ] | 字符串 | 否 |
+| apache_vhost_mode | default.conf template, selected from [reverse,www,alias]  | String | No |
+| apache_reverse_proxy_port | when use reverse template, this var must used  | String | No |
+| apache_listen_port | "80"  | String | No |
+| apache_appanme | joomla  | String | Yes |
 
 
 
