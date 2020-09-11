@@ -68,8 +68,8 @@
 - name: Using 127.0.1.1 for ServerName
   lineinfile:
     dest: /etc/httpd/conf/httpd.conf
-    regexp: "ServerName localhost:80"
-    line: "#ServerName localhost:80"
+    regexp: "#ServerName localhost:80"
+    line: "ServerName localhost:80"
       
 - name: Start Apache
   service:
