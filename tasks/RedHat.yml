@@ -65,7 +65,7 @@
     line: "    DirectoryIndex {{apache_default_index}}"
     backrefs: yes
     
-- name: set auto access index page
+- name: Using 127.0.1.1 for ServerName
   lineinfile:
     dest: /etc/httpd/conf/httpd.conf
     regexp: "ServerName localhost:80"
