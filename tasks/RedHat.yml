@@ -64,6 +64,12 @@
     regexp: "    DirectoryIndex index.html"
     line: "    DirectoryIndex {{apache_default_index}}"
     backrefs: yes
+    
+- name: set auto access index page
+  lineinfile:
+    dest: /etc/httpd/conf/httpd.conf
+    regexp: "ServerName localhost:80"
+    line: "#ServerName localhost:80"
       
 - name: Start Apache
   service:
