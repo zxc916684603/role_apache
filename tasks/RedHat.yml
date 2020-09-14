@@ -20,13 +20,6 @@
   file:
     path: /data/config/apache
     state: directory
-
-- name: Enable apache modules
-  yum: 
-    name: "{{ item }}"
-    state: latest 
-    update_cache: yes
-  loop: "{{ apache_module_enable }}"
     
 - name: Create Vhost Configure Directory
   file:
