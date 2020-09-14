@@ -10,6 +10,6 @@ apache_appname: "example"
 apache_default_index: " index.html index.htm index.php index.jsp "
 
 
-apache_modules_common:
-  - 1
+apache_modules_enable:
+  - prefork
   - php-bcmath
