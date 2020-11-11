@@ -1,6 +1,13 @@
 # install Apache by OS_family
-- name: Install this role on {{ansible_os_family}}
+- name: install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
+  
+# install Certbot for apache
+- name: Install certbot
+  shell: |
+    snap install --classic certbot
+    ln -sf /snap/bin/certbot /usr/bin/certbot
+  when: apache_certbot  
   
 # check service state
 - name: Check Apache Service
