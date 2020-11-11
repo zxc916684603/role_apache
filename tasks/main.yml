@@ -1,8 +1,8 @@
 # install Apache by OS_family
-- name: Install this role on {{ansible_os_family}}
+- name: install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
   
-# Install Certbot for Nginx
+# install Certbot for Nginx
 - name: Install certbot
   shell: |
     snap install --classic certbot
