@@ -1,4 +1,4 @@
-# install snap toos,
+#1 install snap toos,
 # use yumdownloader and rpm install requires package,waiting for rhel official update repo;
 - block:
   - name: Install requires package and remove on second installation
@@ -105,10 +105,3 @@
 
 - name: Check Apache Version
   shell: sudo sh -c 'echo "httpd  $( httpd -v | sed -n 1p)" 1>> /data/logs/install_version.txt'
-  
-#2 Install Certbot for Apache
-- name: Install certbot
-  shell: |
-    yum install -y certbot python2-certbot-apache
-    echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew -q" | sudo tee -a /etc/crontab > /dev/null
-  when: apache_certbot
