@@ -1,4 +1,30 @@
-#1 Install and configure Apache
+# install snap toos,
+# use yumdownloader and rpm install requires package,waiting for rhel official update repo;
+- block:
+  - name: Install requires package and remove on second installation
+    shell: |
+      yumdownloader snapd-selinux-2.47.1-1.el7.noarch
+      rpm --force --nodeps -ivh snapd-selinux-2.47.1-1.el7.noarch.rpm
+      test -e snapd-selinux-* && rm -rf snapd-selinux-*.rpm
+      
+  - name: Install snap tools
+    yum: 
+      name: snapd
+      update_cache: yes      
+  
+  - name: enable and create link for snap
+    shell: |
+      systemctl enable --now snapd.socket
+      ln -sf /var/lib/snapd/snap /data
+      
+  - name: Install and upgrade core 
+    shell: |
+      snap install core 
+      snap refresh core
+      ln -sf /snap /data
+    failed_when: false
+    
+#2 install and configure Apache
 - block:
   - name: install the IUS rpm from a remote repo
     yum:
