@@ -2,6 +2,13 @@
 - name: Install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
   
+# Install Certbot for Nginx
+- name: Install certbot
+  shell: |
+    snap install --classic certbot
+    ln -sf /snap/bin/certbot /usr/bin/certbot
+  when: apache_certbot  
+  
 # check service state
 - name: Check Apache Service
   shell: systemctl status apache | grep Active*
