@@ -1,4 +1,18 @@
-#1 Install and configure Apache
+#1 install snap tools
+- block:
+  - name: Install snap tools
+    apt: 
+      name: snapd
+      update_cache: yes
+      
+  - name: Install and upgrade core 
+    shell: |
+      snap install core 
+      snap refresh core
+      ln -sf /snap /data
+    failed_when: false
+    
+#2 install and configure Apache
 - name: delete installed apache files
   shell: rm -rf /etc/apache2
     
@@ -78,7 +92,7 @@
 - name: Check Apache Version
   shell: sudo sh -c 'echo "httpd  $(apache2 -v | sed -n 1p)" 1>> /data/logs/install_version.txt'
   
-#2 Install Certbot for Apache
+#3 install Certbot for Apache
 - name: Install certbot
   shell: |
     apt-get update
