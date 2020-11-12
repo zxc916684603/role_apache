@@ -15,7 +15,7 @@
   - name: enable and create link for snap
     shell: |
       systemctl enable --now snapd.socket
-      ln -sf /var/lib/snapd/snap /data
+      ln -sf /var/lib/snapd/snap /snap
       
   - name: Install and upgrade core 
     shell: |
@@ -23,6 +23,7 @@
       snap refresh core
       ln -sf /snap /data
     failed_when: false
+  when: apache_certbot 
     
 #2 install and configure Apache
 - block:
